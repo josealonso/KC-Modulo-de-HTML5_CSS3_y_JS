@@ -1,4 +1,4 @@
-var MAX_NUMBER_OF_WORDS = 9; //150;
+var MAX_NUMBER_OF_WORDS = 150;
 var textAreaElement = document.getElementById('text-area');
 var numOfWords = 0;
 var elemThruOther = document.getElementById('other');
@@ -49,7 +49,7 @@ elemThruOther.addEventListener('change', function toggleTextArea() {
 /****************** Impide la escritura cuando se ha llegado a un determinado número de palabras ********************/
 
 textAreaElement.addEventListener('keypress', function calculateNumberOfWords(textArea) {
-	numOfWords = textAreaElement.value.split(/\s+/).length; //textContent;
+	numOfWords = textAreaElement.value.split(/\s+/).length; 
 	console.log('Palabras: ' + numOfWords);
 	if (numOfWords >= MAX_NUMBER_OF_WORDS) {
 		//console.log('Stop typing !!');
