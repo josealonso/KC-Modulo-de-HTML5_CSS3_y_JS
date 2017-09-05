@@ -38,17 +38,17 @@
 			<h2>Tasks</h2>
 
 			<div class="col-6">
-				<h3>Add new task</h3>
-				<form>
+				<h3 class="create-task-title">Add new task</h3>
+				<form class="create-task-form">
 					<input type="text" id="new-task-name" name="name" placeholder="New task..." required>
 					<br>
 					<br>
-					<button id="send-new-task">Submit</button>
+					<button id="send-new-task" class="new-task-button">Submit</button>
 				</form>
 			</div>
 
 			<div class="col-6">
-				<h3>Pending tasks</h3>
+				<h3 class="list-tasks-title">Pending tasks</h3>
 				<div class="loader"></div>
 				<div>
 					<ul id="task-container">

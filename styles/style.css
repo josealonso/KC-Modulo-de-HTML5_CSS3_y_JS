@@ -1,11 +1,3 @@
-/*@import url('/css/typography.css');*/
-
-
-/*@import url('styles/grid.css');
-@import url('/styles/font-awesome.css');
-@import url('/styles/number-polyfill.css');
-@import url('https://fonts.googleapis.com/css?family=Roboto'); */
-
 * {
 	font-family: 'Lato', garamond, verdana, 'Roboto', sans-serif;
 	color: #e7f7f7;
@@ -34,7 +26,6 @@ body {
 	/*--secondary-text-color: #A4A4A4; */
 }
 
-
 /* Fix for the floating elements (in the about-me section) */
 
 .clearfix:after {
@@ -57,7 +48,6 @@ h1 {
 	text-align: center;
 }
 
-
 /******************* Navigation bar or menu ********************/
 
 .navbar {
@@ -70,19 +60,19 @@ h1 {
 	animation-delay: 0.5s;
 }
 
-.navbar>.navbar-list {
+.navbar > .navbar-list {
 	list-style-type: none;
 	margin: 0;
 	float: right;
 	font-size: 0;
 }
 
-.navbar>.navbar-list>.navbar-item {
+.navbar > .navbar-list > .navbar-item {
 	display: inline-block;
 	font-size: 20px;
 }
 
-.navbar>.navbar-list>.navbar-item a {
+.navbar > .navbar-list > .navbar-item a {
 	padding: 20px;
 	text-decoration: none;
 	color: rgba(0, 0, 0, 0.9);
@@ -90,36 +80,35 @@ h1 {
 	transition: all 0.5s linear;
 }
 
-.navbar>.navbar-list>.navbar-item.active a {
+.navbar > .navbar-list > .navbar-item.active a {
 	color: #f7f7f7;
 	background-color: #a4a4a4;
 }
 
-.navbar>.navbar-list>.navbar-item a:hover {
+.navbar > .navbar-list > .navbar-item a:hover {
 	color: #f7f7f7;
 	background-color: #a4a4a4;
 }
-
 
 /******************** My photo *********************/
 
-header>.title-img {
+header > .title-img {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-image: url(../images/photo.jpg); 
+	background-image: url(../images/photo.jpg);
 	/* Photo compressed with tinybmp.com */
-	height: 100vh; 
-	transition: background-size 0.5s; 
+	height: 100vh;
+	transition: background-size 0.5s;
 	/* filter: grayscale(100%); */
 	/*filter: url(../images/gray.svg);*/
-} 
+}
 
-.header>.title-img:hover {
+.header > .title-img:hover {
 	background-size: 85% 85%;
 }
 
-.header>.title {
+.header > .title {
 	position: absolute;
 	left: 0;
 	top: 65%;
@@ -137,7 +126,7 @@ header>.title-img {
 	background-color: none;
 }
 
-.header>.title-cite>.catching-quote {
+.header > .title-cite > .catching-quote {
 	position: absolute;
 	left: 0;
 	top: 50%;
@@ -192,7 +181,6 @@ header>.title-img {
 	}
 }
 
-
 /********************************************************/
 
 .container {
@@ -232,7 +220,6 @@ header>.title-img {
 	padding-bottom: 20px;
 	border-radius: 10px;
 }
-
 
 /************************ Education and Experience sections ****************************/
 
@@ -283,9 +270,6 @@ header>.title-img {
 	flex-flow: row wrap;
 }
 
-
-/* #experience, #education article:nth-child(even) {  This line does not work */
-
 #experience article:nth-child(even) {
 	background-color: #999999;
 }
@@ -305,26 +289,25 @@ header>.title-img {
 	/* round only the bottom corners */
 }
 
-#experience article>.experience-title {
+#experience article > .experience-title {
 	flex: 1;
 }
 
-#experience article>.experience-content {
+#experience article > .experience-content {
 	flex: 3;
 	text-align: left;
 	/* It's the default value */
 }
 
-#education article>.education-title {
+#education article > .education-title {
 	flex: 1;
 }
 
-#education article>.education-content {
+#education article > .education-content {
 	flex: 3;
 	text-align: left;
 	/* It's the default value */
 }
-
 
 /************************ About-me section ****************************/
 
@@ -339,7 +322,7 @@ header>.title-img {
 	border-radius: 10px 10px 0 0;
 }
 
-.about-me-container>.about-me-video {
+.about-me-container > .about-me-video {
 	float: left;
 	padding-left: 10%;
 	/* Valores relativos */
@@ -352,7 +335,7 @@ header>.title-img {
 	height: 80%;
 }
 
-.about-me-container>.about-me-info {
+.about-me-container > .about-me-info {
 	float: right;
 	padding-right: 10%;
 	padding-top: 40px;
@@ -360,7 +343,6 @@ header>.title-img {
 	color: black;
 	/*margin-right: 300px; */
 }
-
 
 /***************** Reach-me subsection **************/
 
@@ -370,7 +352,7 @@ header>.title-img {
 	padding-bottom: 15px;
 }
 
-#reach-me-subsection>p {
+#reach-me-subsection > p {
 	color: black;
 	text-align: center;
 	font-size: 26x;
@@ -383,18 +365,17 @@ header>.title-img {
 	justify-content: space-around;
 }
 
-.reach-me-container>#email-icon {
+.reach-me-container > #email-icon {
 	cursor: pointer;
 }
 
-.reach-me-container>#linkedin-icon {
+.reach-me-container > #linkedin-icon {
 	cursor: pointer;
 }
 
-.reach-me-container>#github-icon {
+.reach-me-container > #github-icon {
 	cursor: pointer;
 }
-
 
 /* .reach-me-container .icon:hover {    /* It won't work with ">" */
 
@@ -412,7 +393,6 @@ header>.title-img {
 	transition: 0.9s;
 	transform: scale(1.5) rotateY(180deg);
 }
-
 
 /*************************************************/
 
@@ -441,7 +421,6 @@ footer {
 	font-size: smaller;
 	background-color: #05f;
 }
-
 
 /******************* For the contact page **********************/
 
@@ -505,7 +484,7 @@ button {
 	border-radius: 4px;
 }
 
-.how>label {
+.how > label {
 	height: 30px;
 	width: 10px;
 	background-color: #b09090;
@@ -530,7 +509,6 @@ button[disabled] {
 	}
 }
 
-
 /* Classes to toggle the text area */
 
 .show-textarea {
@@ -539,4 +517,28 @@ button[disabled] {
 
 .hide-textarea {
 	display: none;
+}
+
+/******************* For the tasks page **********************/
+.create-task-title {
+	padding-left: 50px;
+}
+.create-task-form {
+	padding-left: 30px;
+}
+
+.create-task-form > .new-task-button {
+	
+}
+
+.list-tasks-title {
+	padding-left: 80px;
+}
+
+#task-container {
+}
+#task-container > .task-item {
+}
+.task-item > .delete-task-button {
+	margin: 5px 2px 5px 20px;
 }

@@ -1,6 +1,5 @@
 var MAX_NUMBER_OF_WORDS = 150;
 var textAreaElement = document.getElementById('text-area');
-var numOfWords = 0;
 var elemThruOther = document.getElementById('other');
 
 var form = document.getElementsByTagName('form')[0];
@@ -8,7 +7,6 @@ var inputNombre = document.getElementById('nombre');
 var inputApellidos = document.getElementById('apellidos');
 var emailInput = document.getElementById('email');
 var phoneInput = document.getElementById('phone');
-var textAreaElement = document.getElementById('text-area');
 var submitButton = document.getElementById('enviar');
 
 var thruGoogleSearch = document.getElementById('Google-search');
@@ -29,6 +27,7 @@ function init() {
 	for (i in inputs) {
 		inputs[i].style.color = 'black';
 	}
+	textAreaElement.value = "";
 }
 
 document.onload = init();
@@ -49,10 +48,10 @@ elemThruOther.addEventListener('change', function toggleTextArea() {
 /****************** Impide la escritura cuando se ha llegado a un determinado número de palabras ********************/
 
 textAreaElement.addEventListener('keypress', function calculateNumberOfWords(textArea) {
-	numOfWords = textAreaElement.value.split(/\s+/).length; 
-	console.log('Palabras: ' + numOfWords);
-	if (numOfWords >= MAX_NUMBER_OF_WORDS) {
-		//console.log('Stop typing !!');
+	var numOfWords = 0;
+	numOfWords = textAreaElement.value.trim().split(/\s+/).length; 
+	//console.log('Palabras: ' + numOfWords);
+	if (numOfWords > MAX_NUMBER_OF_WORDS) {
 		textAreaElement.setAttribute('disabled', true);
 	} else {
 		textAreaElement.removeAttribute('disabled');
