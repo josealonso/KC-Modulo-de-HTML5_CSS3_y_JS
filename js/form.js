@@ -47,10 +47,10 @@ elemThruOther.addEventListener('change', function toggleTextArea() {
 
 /****************** Impide la escritura cuando se ha llegado a un determinado número de palabras ********************/
 
-textAreaElement.addEventListener('keypress', function calculateNumberOfWords(textArea) {
+textAreaElement.addEventListener('keyup', function calculateNumberOfWords(textArea) {
 	var numOfWords = 0;
 	numOfWords = textAreaElement.value.trim().split(/\s+/).length; 
-	//console.log('Palabras: ' + numOfWords);
+	console.log('Palabras: ' + numOfWords);
 	if (numOfWords > MAX_NUMBER_OF_WORDS) {
 		textAreaElement.setAttribute('disabled', true);
 	} else {
