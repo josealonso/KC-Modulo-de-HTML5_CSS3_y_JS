@@ -1,17 +1,18 @@
+var API_URL = 'http://localhost:8000/tasks/';
 var tasks = [];
 
 var drawTasks = function() {
 	$('#task-container').empty();
 
 	if (tasks.length == 0) {
-		$('#task-container').append('<li>No hay tareas pendientes</li>');
+		$('#task-container').append('<li>There are no pending tasks</li>');
 	} else {
 		var contentToAdd = '';
 		for (var i = 0; i < tasks.length; i++) {
 			contentToAdd +=
 				'<li class="task-item">' +
 				tasks[i].name +
-				'<button class="delete-task-button" data-task-id="' +
+				'<button class="delete-task" data-task-id="' +
 				tasks[i].id +
 				'">Delete</button></li>';
 		}
@@ -21,7 +22,7 @@ var drawTasks = function() {
 
 var getTasks = function() {
 	var XHR = new XMLHttpRequest();
-	XHR.open("GET", "http://localhost:8000/api/tasks", true);
+	XHR.open("GET", API_URL, true);
 	XHR.setRequestHeader('Content-Type', 'application/json');
 
 	XHR.onreadystatechange = function() {
@@ -40,7 +41,7 @@ getTasks();
 
 var createTask = function(name) {
 	var XHR = new XMLHttpRequest();
-	XHR.open("POST", "http://localhost:8000/api/tasks", true);
+	XHR.open("POST", API_URL, true);
 	XHR.setRequestHeader('Content-Type', 'application/json');
 
 	XHR.onreadystatechange = function() {
@@ -48,6 +49,7 @@ var createTask = function(name) {
 			tasks.push(JSON.parse(XHR.responseText));
 			console.log('Llamada a tasks.push');
 			drawTasks();
+			document.getElementById('new-task-name').value = "";
 		} else if (XHR.readyState === 4 && XHR.status === 404) {
 			console.log('Página no encontrada');
 		}
@@ -58,7 +60,8 @@ var createTask = function(name) {
 
 var deleteTask = function(id) {
 	var XHR = new XMLHttpRequest();
-	XHR.open("DELETE", "http://localhost:8000/api/tasks/" + id, true);
+	XHR.open("DELETE", API_URL + id, true);
+	console.log("Delete: " + API_URL+id)
 	XHR.setRequestHeader('Content-Type', 'application/json');
 
 	XHR.onreadystatechange = function() {
@@ -80,6 +83,7 @@ document.getElementById('send-new-task').addEventListener('click', function(even
 });
 
 getTasks();
+
 
 $(document).on('click', '.delete-task', function() {
 	var id = $(this).data('taskId');
