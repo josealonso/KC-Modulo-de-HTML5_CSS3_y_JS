@@ -10,3 +10,5 @@ El servidor facilitado en Python no me ha funcionado. En su lugar, he usado el m
 npm install
 ```
 
+Tener en cuenta que el fichero ```db.json``` está en el directorio ```http://localhost:8000/tasks/```, el directorio ```api``` no existe.
+

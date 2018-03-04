@@ -23,7 +23,7 @@ loadingIcon.classList.add('fa', 'fa-spinner', 'fa-spin');
 
 function init() {
 	textAreaDiv.classList.add('hide-textarea');
-	var inputs = [ inputNombre, inputApellidos, emailInput, phoneInput, textAreaElement ];
+	var inputs = [inputNombre, inputApellidos, emailInput, phoneInput, textAreaElement];
 	for (i in inputs) {
 		inputs[i].style.color = 'black';
 	}
@@ -31,6 +31,15 @@ function init() {
 }
 
 document.onload = init();
+
+/**************************************************************************/
+function calculateNumberOfWords(text) {
+	// var numOfWords = textAreaElement.value.trim().split(/\s+/).length;
+	var singleSpacedText = text.replace(/\s\s+/g, ' ').trim();
+	var listOfWords = singleSpacedText.split(' ');
+	var numOfWords = listOfWords.length;
+	return numOfWords;
+}
 
 /****************** Muestra o esconde la caja de texto ********************/
 
@@ -45,22 +54,8 @@ elemThruOther.addEventListener('change', function toggleTextArea() {
 	}
 });
 
-/****************** Impide la escritura cuando se ha llegado a un determinado número de palabras ********************/
-
-textAreaElement.addEventListener('keyup', function calculateNumberOfWords(textArea) {
-	var numOfWords = 0;
-	numOfWords = textAreaElement.value.trim().split(/\s+/).length; 
-	console.log('Palabras: ' + numOfWords);
-	if (numOfWords > MAX_NUMBER_OF_WORDS) {
-		textAreaElement.setAttribute('disabled', true);
-	} else {
-		textAreaElement.removeAttribute('disabled');
-		return;
-	}
-});
-
 /****************** Código que se ejecuta al enviar el formulario ********************/
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', function (event) {
 	if (inputNombre.checkValidity() === false) {
 		alert('Write your name');
 		inputNombre.focus();
@@ -95,8 +90,16 @@ form.addEventListener('submit', function(event) {
 		return false;
 	}
 
-	if (elemThruOther.checked === true && textAreaElement.value[0] === ' ') {
+	if (elemThruOther.checked === true && textAreaElement.value.length === 0) {
 		alert('Explain in the text box how you heard about us');
+		textAreaElement.focus();
+		event.preventDefault();
+		return false;
+	}
+
+	//if (calculateNumberOfWords(textAreaElement.val()) > MAX_NUMBER_OF_WORDS) {
+	if (calculateNumberOfWords(textAreaElement.value) > MAX_NUMBER_OF_WORDS) {
+		alert('The maximum is ' + MAX_NUMBER_OF_WORDS + ' words.');
 		textAreaElement.focus();
 		event.preventDefault();
 		return false;
@@ -106,7 +109,7 @@ form.addEventListener('submit', function(event) {
 	submitButton.appendChild(loadingIcon);
 	event.preventDefault();
 
-	setTimeout(function() {
+	setTimeout(function () {
 		form.reset();
 		submitButton.removeAttribute('disabled');
 		textAreaElement.removeAttribute('disabled');
