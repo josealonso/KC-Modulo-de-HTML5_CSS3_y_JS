@@ -6,6 +6,7 @@ El currículum se compone de dos páginas: una estática y otra dinámica. Esta 
 
 El servidor facilitado en Python no me ha funcionado. En su lugar, he usado el módulo **json-server**. Por tanto, para comprobar la parte de tareas, hay que tener instalado **Node** y ejecutar
 
-´´´
+```javascript
 npm install
-´´´
+```
+
