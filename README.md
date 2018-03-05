@@ -10,5 +10,9 @@ El servidor facilitado en Python no me ha funcionado. En su lugar, he usado el m
 npm install
 ```
 
+```javascript
+npm run server
+```
+
 Tener en cuenta que las peticiones GET se hacen a la dirección ```http://localhost:8000/tasks/```, ya que el fichero ```db.json``` está en el directorio raíz. El directorio ```api``` no existe.
 
